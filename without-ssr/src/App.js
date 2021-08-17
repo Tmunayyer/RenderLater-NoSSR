@@ -1,14 +1,29 @@
 import logo from './logo.svg';
 import './App.css';
 
-import Header from "./Header/Header"
 import BigHeavyComponent from "./BigHeavyComponent/BigHeavyComponent"
+import RenderLater from "./RenderLater/RenderLater"
 
 function App() {
+   const someListOfComponents = [
+      "one",
+      "two",
+      "three",
+      "four"
+   ]
+
   return (
     <div className="App">
-      <Header />
-      <BigHeavyComponent />
+
+      {someListOfComponents.map((data, index) => {
+         return <RenderLater>
+            <BigHeavyComponent 
+               key={index}
+               data={data} 
+            />
+         </RenderLater>
+      })}
+
       <div className="App-header">
 
         <img src={logo} className="App-logo" alt="logo" />
